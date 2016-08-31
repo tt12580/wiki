@@ -10,6 +10,11 @@
       color: #555;
       background: #e9eaed;
     }
+    p{
+      text-indent:2em;
+      font-size: 18px;
+    }
+
     .markdown{
       word-wrap: break-word;
 
@@ -20,7 +25,7 @@
     }
     .blog-post-title {
       margin-bottom: 5px;
-      font-size: 40px;
+      font-size: 36px;
     }
     .blog-post-meta {
       margin-bottom: 20px;
@@ -60,6 +65,7 @@
       text-align: center;
     h1{
       margin-bottom: 20px;
+
     }
     }
 
@@ -73,14 +79,27 @@
       letter-spacing: -1px;
       padding-top: 9px;
       font-weight: bold;
-      &:hover {
-        color: red;
-        text-decoration: none;
+      &:hover{
+        color:#EB5424;background:transparent;
       }
     }
     h3{
       text-align: center;
       border-bottom: 1px solid black;
+    }
+    dd{
+      padding-top: 20px;
+      text-align: center;
+      font-size: 1.8em;
+
+    }
+    dl{
+      text-align: center;
+      font-size: 22px;
+
+    }
+    dt{
+      float: right;
     }
     .notices {
       list-style: none;
@@ -99,5 +118,5 @@
     }
     .content{
       text-align: center;
-      font-size: 1.5em;
+
     }

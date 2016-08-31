@@ -1,0 +1,41 @@
+<% provide(:title, "日记") %>
+<div id="main" class="main-container container">
+  <div class="row">
+    <div class="sidebar wiki-sidebar col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="markdown">
+            <h3>公告</h3>
+            <ol class="notices">
+              <%= render 'shared/notices' %>
+              <li class="more"><%= link_to 'more',more_path%></li>
+            </ol>
+           </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'shared/nav' %>
+  </div>
+</div>
+<div id="main" class="main-container container">
+  <div class="row">
+    <%= render 'shared/wenzhang' %>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div class="markdown">
+           <dd>寂静花开</dd>
+           <dl>作者：　格子</dl>
+           <p>素来喜欢呼吸户外的空气，不管新不新鲜，总能比过室内。长期困于一室，不免发霉，不如打开门，走出去看看，肯定有多余握着手机躺倒于七尺床榻的收获。</p>
+           <p>正好周末闲来无事，带好自以为可以遮挡每一寸阳光的装备，约上伙伴，沿着油建北路一直往北。跨过还算整齐茂盛的防风固沙护城树林，走过一段段小岔路，终于来到平素只能在办公楼远眺的戈壁荒山上。</p>
+           <p>山脚乱石嶙峋，黑漆漆的，死寂般堆砌着。踩在乱石块上，嘎吱作响，一点生命力都瞧不见。可远方和山顶依然极具诱惑力，人们总想去山顶，瞧瞧山的那边是什么，远方是什么，也许那儿会比这儿好。</p>
+           <p>带着好奇心和好胜心，跨过一道道山梁，终于到达第一个山顶。 这才低头，猛然发现了一株从未见过的花。不争不抢，不喜不怒地静静开在乱石堆中。叫不出名字也并不要紧，又有什么可以阻止它的绝代芳华？第一次见这样的花，竟不知用怎样的词语才能形容。我怜惜它不为人知的孤寂，也羡慕它远离尘嚣的清明，更钦佩于它在这乱石堆中坚强挺拔的傲然！</p>
+         </div>
+       </div>
+     </div>
+
+  </div>
+  <div class="row">
+    <%= render 'shared/footer' %>
+  </div>
+</div>

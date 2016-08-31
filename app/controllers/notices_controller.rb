@@ -28,10 +28,29 @@ class NoticesController < ApplicationController
     @notices = Notice.first(5)
   end
 
+  def zawen
+    @notices = Notice.first(5)
+  end
+
+  def suibi
+    @notices = Notice.first(5)
+  end
+
+  def riji
+    @notices = Notice.first(5)
+  end
+
+  def xxs
+    @notices = Notice.first(5)
+  end
+
   def libai
   end
 
   def dufu
+  end
+
+  def xqj
   end
 
   def list

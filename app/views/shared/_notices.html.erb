@@ -1,8 +1,8 @@
 <% @notices.each do |notice| %>
   <li>
     <%= link_to notice.title, notice_path(notice) %>
-    <p class="time">
+    <div class="time">
         Posted <%= notice.created_at.to_s(:db) %>
-    </p>
+    </div>
   </li>
 <% end %>
