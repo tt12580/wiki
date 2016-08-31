@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-1 blog-main">
+    <div class="blog-header">
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= @notice.title %></h2>
+        <p class="blog-post-meta">Posted <%= @notice.created_at.to_s(:db) %></p>
+        <p class="lead blog-description"><%= raw @notice.body %></p>
+      </div>
+    </div>
+  </div>
+</div>

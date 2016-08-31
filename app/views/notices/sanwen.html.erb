@@ -1,0 +1,28 @@
+<% provide(:title, "Index") %>
+<div id="main" class="main-container container">
+  <div class="row">
+    <div class="sidebar wiki-sidebar col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="markdown">
+            <h3>公告</h3>
+            <ol class="notices">
+              <%= render 'shared/notices' %>
+              <li class="more"><%= link_to 'more',more_path%></li>
+            </ol>
+           </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'shared/nav' %>
+  </div>
+</div>
+<div id="main" class="main-container container">
+  <div class="row">
+    <%= render 'shared/wenzhang' %>
+    <%= render 'shared/home' %>
+  </div>
+  <div class="row">
+    <%= render 'shared/footer' %>
+  </div>
+</div>

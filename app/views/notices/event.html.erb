@@ -1,0 +1,15 @@
+<% provide(:title, "Event") %>
+<div class="col-md-6 col-md-offset-3 ">
+  <h3>公告</h3>
+    <ol class="notices">
+      <% @notices.each do |notice| %>
+        <li>
+          <%= link_to notice.title, notice_path(notice) %>
+          |<%= link_to 'delete',notice, method: :delete %>
+          <p class="time">
+              Posted <%= notice.created_at.to_s(:db) %>
+          </p>
+        </li>
+      <% end %>
+    </ol>
+</div>
