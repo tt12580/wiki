@@ -1,0 +1,2 @@
+module WenzhangsHelper
+end

@@ -1,8 +1,8 @@
-<% provide(:title, "More") %>
-<div id="main" class="main-container container">
+<% provide(:title, "Index") %>
+<div class="main-container container">
   <div class="row">
     <div class="sidebar wiki-sidebar col-md-6">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-body">
           <div class="markdown">
             <h3>公告</h3>
@@ -16,12 +16,45 @@
     <%= render 'shared/nav' %>
   </div>
 </div>
-<div id="main" class="main-container container">
+<div class="main-container container">
   <div class="row">
-    <%= render 'shared/wenzhang' %>
-    <%= render 'shared/home' %>
+    <div class="sidebar wiki-sidebar col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <strong>文章类别</strong>
+          <ul>
+            <% @taxons.each do |taxon| %>
+              <li><%= link_to taxon.list, taxon_path(taxon) %></li>
+            <% end %>
+         </ul>
+       </div>
+     </div>
+   </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <%= paginate @wenzhangs %>
+      <% @wenzhangs.each do |wenzhang| %>
+          <div class="panel-heading"><%= wenzhang.head %></div>
+          <div class="panel-body"><%= raw wenzhang.content %></div>
+        </div>
+      <% end %>
+    </div>
+  <div class="foot">
+    <div id="main" class="main-container container">
+      <div class="row">
+        <div class=" col-md-2 ">
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <div class="markdown">
+                <strong>古代诗人推荐</strong>
+                <ul>
+                  <% @wikis.each do |wiki| %>
+                    <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
+                  <% end %>
+               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <%= render 'shared/footer' %>
-  </div>
-</div>

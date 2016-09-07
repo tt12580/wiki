@@ -2,10 +2,9 @@ class NoticesController < ApplicationController
 
   def index
     @notices = Notice.first(5)
-  end
-
-  def new
-    @notice = Notice.new
+    @wenzhangs = Taxon.first.wenzhangs.paginate(page: params[:page]).per_page(1)
+    @taxons = Taxon.all
+    @wikis = Wiki.all
   end
 
   def show
@@ -18,61 +17,14 @@ class NoticesController < ApplicationController
 
   def more
     @notices = Notice.all
-  end
-
-  def sanwen
-    @notices = Notice.first(5)
-  end
-
-  def shige
-    @notices = Notice.first(5)
-  end
-
-  def zawen
-    @notices = Notice.first(5)
-  end
-
-  def suibi
-    @notices = Notice.first(5)
-  end
-
-  def riji
-    @notices = Notice.first(5)
-  end
-
-  def xxs
-    @notices = Notice.first(5)
-  end
-
-  def libai
-  end
-
-  def dufu
-  end
-
-  def xqj
+    @wenzhangs = Taxon.first.wenzhangs.page(params[:page]).per_page(1)
+    @taxons = Taxon.all
+    @wikis = Wiki.all
   end
 
   def list
-    @notices = Notice.first(5)
-  end
-
-  def create
-    @notice = Notice.new(notice_params)
-    if @notice.save
-      flash[:success] = "success"
-      redirect_to root_url
-    else
-      render 'new'
-    end
-  end
-
-  def destroy
-    @notice = Notice.find(params[:id])
-    if @notice.destroy
-      flash[:success] = "deleted"
-      redirect_to root_url
-    end
+    @wikis = Wiki.all
+    @writings = Writing.all
   end
 
   private

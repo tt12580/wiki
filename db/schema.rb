@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825073905) do
+ActiveRecord::Schema.define(version: 20160906014331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,4 +22,36 @@ ActiveRecord::Schema.define(version: 20160825073905) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "taxons", force: :cascade do |t|
+    t.text     "list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "wenzhangs", force: :cascade do |t|
+    t.text     "head"
+    t.text     "content"
+    t.integer  "taxon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["taxon_id"], name: "index_wenzhangs_on_taxon_id", using: :btree
+  end
+
+  create_table "wikis", force: :cascade do |t|
+    t.text     "mulu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "writings", force: :cascade do |t|
+    t.text     "name"
+    t.text     "mainbody"
+    t.integer  "wiki_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wiki_id"], name: "index_writings_on_wiki_id", using: :btree
+  end
+
+  add_foreign_key "wenzhangs", "taxons"
+  add_foreign_key "writings", "wikis"
 end

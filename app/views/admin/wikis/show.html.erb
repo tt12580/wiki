@@ -1,0 +1,23 @@
+<div class="main-container container">
+  <div class="row">
+    <div class="sidebar wiki-sidebar col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <strong>古代诗人推荐</strong>
+          <ul>
+            <% @wikis.each do |wiki| %>
+              <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
+            <% end %>
+         </ul>
+       </div>
+     </div>
+   </div>
+  <div class="col-md-9">
+    <%= will_paginate @writings %>
+    <% @writings.each do |writing| %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= writing.name %></div>
+        <div class="panel-body"><<%= raw writing.mainbody %></div>
+      </div>
+    <% end %>
+  </div>

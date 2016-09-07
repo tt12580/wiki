@@ -1,0 +1,31 @@
+<% provide(:title, "公告") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 ">
+      <%= link_to 'New Notice', new_admin_notice_path, class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+</div>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Title</td>
+      <td>Body</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+      <%= paginate @notices %>
+      <% @notices.each do |notice| %>
+      <tr>
+        <td><%= notice.id %></td>
+        <td><%= notice.title %></td>
+        <td><%= raw notice.body %></td>
+        <td><%= link_to 'edit', edit_admin_notice_path(notice), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'delete', [:admin,notice], method: :delete, class: 'btn btn-primary' %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

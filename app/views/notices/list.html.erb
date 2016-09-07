@@ -1,41 +1,25 @@
-<% provide(:title, "List") %>
-<div id="main" class="main-container container">
+<% provide(:title, "Wiki") %>
+<div class="main-container container">
   <div class="row">
     <div class="sidebar wiki-sidebar col-md-3">
       <div class="panel panel-default">
         <div class="panel-body">
-            <strong>古代文学推荐</strong>
-            <ul>
-              <li><%= link_to '李白',libai_path %></li>
-              <li><%= link_to '杜甫',dufu_path %></li>
-              <li><%= link_to '辛弃疾','#' %></li>
-              <li><%= link_to '白居易','#' %></li>
-              <li><%= link_to '杜牧','#' %></li>
-              <li><%= link_to '李清照','#' %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="markdown">
-                <dd>将进酒</dd>
-                <div class="content">
-                  <p> 床前明月光，疑是地上霜。</p>
-                  <p> 举头望明月，低头思故乡。</p>
-                </div>
-              </div>
-                <dd>望庐山瀑布</dd>
-                <div class="content">
-                  <p> 日照香炉生紫烟，遥看瀑布挂前川。</p>
-                  <p> 飞流直下三千尺，疑是银河落九天。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <strong>古代诗人推荐</strong>
+          <ul>
+            <% @wikis.each do |wiki| %>
+              <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
+            <% end %>
+         </ul>
+       </div>
+     </div>
+   </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <% @writings.each do |writing| %>
+            <dd><%= writing.name %></dd>
+            <dl><%= raw writing.mainbody %></dl>
+          <% end %>
       </div>
     </div>
   </div>
-</div>

@@ -1,0 +1,13 @@
+<% provide(:title, "Update writing") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for [:admin, @writing] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :wiki_id, collection: Wiki.all.map{|t| [t.mulu, t.id]}  %>
+        <%= f.input :mainbody ,as: :wysihtml5 %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
