@@ -41,6 +41,7 @@ gem 'paranoia',  '2.2.0.pre'
 gem 'simple_form'
 gem 'bootstrap-wysihtml5-rails'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

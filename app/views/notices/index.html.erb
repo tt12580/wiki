@@ -3,14 +3,14 @@
     <div class="row">
       <div class="sidebar wiki-sidebar col-md-6">
         <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">公告</h3>
+          </div>
           <div class="panel-body">
-            <div class="markdown">
-              <h3>公告</h3>
-              <ol class="notices">
-                <%= render 'shared/notices' %>
-                <li class="more"><%= link_to 'more',more_path%></li>
-              </ol>
-             </div>
+            <ol class="notices">
+              <%= render 'shared/notices' %>
+              <li class="more"><%= link_to 'more',more_path%></li>
+            </ol>
           </div>
         </div>
       </div>
@@ -19,41 +19,48 @@
   </div>
   <div class="main-container container">
     <div class="row">
-      <div class="sidebar wiki-sidebar col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
+      <div class="sidebar wiki-sidebar col-md-2">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
             <strong>文章类别</strong>
+          </div>
+          <div class="panel-body">
             <ul>
               <% @taxons.each do |taxon| %>
-                <li><%= link_to taxon.list, taxon_path(taxon) %></li>
+                <li><%= raw link_to taxon.list, taxon_path(taxon) %></li>
               <% end %>
            </ul>
          </div>
+         <div class="panel-footer"></div>
        </div>
      </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
       <div class="panel panel-default">
-        <%= paginate @wenzhangs %>
+        <%= paginate @wenzhangs, :theme => 'twitter-bootstrap-3' %>
         <% @wenzhangs.each do |wenzhang| %>
-            <div class="panel-heading"><%= wenzhang.head %></div>
+            <div class="panel-heading">
+              <%= raw wenzhang.taxon.list %>
+              <h3 class="panel-title"><%= wenzhang.head %></h3>
+            </div>
             <div class="panel-body"><%= raw wenzhang.content %></div>
+            <div class="panel-footer"></div>
           </div>
         <% end %>
       </div>
     <div class="foot">
-      <div id="main" class="main-container container">
+      <div class="main-container container">
         <div class="row">
-          <div class=" col-md-2 ">
+          <div class="col-md-2">
             <div class="panel panel-primary">
+              <div class="panel-heading"><strong>古代诗人推荐</strong></div>
               <div class="panel-body">
-                <div class="markdown">
-                  <strong>古代诗人推荐</strong>
-                  <ul>
-                    <% @wikis.each do |wiki| %>
-                      <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
-                    <% end %>
-                 </ul>
+                <ul>
+                  <% @wikis.each do |wiki| %>
+                    <li><%= raw link_to wiki.mulu, wiki_path(wiki) %></li>
+                  <% end %>
+                </ul>
               </div>
+              <div class="panel-footer"></div>
             </div>
           </div>
         </div>

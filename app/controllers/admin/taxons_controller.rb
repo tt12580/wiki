@@ -17,7 +17,12 @@ class Admin::TaxonsController < Admin::BaseController
   end
 
   def tax
-    @taxons = Taxon.all.page(params[:page]).per_page(1)
+    @taxons = Taxon.
+      all.
+      search_list(params[:list]).
+      search_taxon_id(params[:id]).
+      page(params[:page]).
+      per_page(2)
   end
 
   def create

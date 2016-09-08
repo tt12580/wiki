@@ -6,6 +6,17 @@
     </div>
   </div>
 </div>
+<%= form_tag admin_write_path, method: :get do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <%= label_tag :mainbody %>
+  <%= text_field_tag :mainbody %>
+  <%= label_tag :mulu %>
+  <%= text_field_tag :mulu %>
+  <%= label_tag :id %>
+  <%= text_field_tag :id %>
+  <%= submit_tag 'search' %>
+<% end %>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -18,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-      <%= paginate @writings %>
+      <%= paginate @writings, :theme => 'twitter-bootstrap-3' %>
       <% @writings.each do |writing| %>
       <tr>
         <td><%= writing.id %></td>

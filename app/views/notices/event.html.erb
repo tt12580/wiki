@@ -9,7 +9,6 @@
               <% @notices.each do |notice| %>
                 <li>
                   <%= link_to notice.title, notice_path(notice) %>
-                  |<%= link_to 'delete',notice, method: :delete %>
                   <p class="time">
                     Posted <%= notice.created_at.to_s(:db) %>
                   </p>

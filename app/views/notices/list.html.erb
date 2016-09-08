@@ -7,7 +7,7 @@
           <strong>古代诗人推荐</strong>
           <ul>
             <% @wikis.each do |wiki| %>
-              <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
+              <li><%= raw link_to wiki.mulu, wiki_path(wiki) %></li>
             <% end %>
          </ul>
        </div>

@@ -1,14 +1,15 @@
-<div class="sidebar wiki-sidebar col-md-2 col-md-offset-4">
+<div class="col-md-2 col-md-offset-4">
   <div class="panel panel-primary">
-    <div class="panel-body">
-      <div class="markdown">
-        <strong>导航</strong>
-        <ul>
-          <li><%= link_to "首页", root_path %></li>
-          <li><%= link_to "Wiki", list_path %></li>
-          <li><%= link_to "公告", event_path %></li>
-        </ul>
-       </div>
+    <div class="panel-heading">
+      <strong class="panel-title">导航</strong>
     </div>
+    <div class="panel-body">
+      <ul>
+        <li><%= link_to "首页", root_path %></li>
+        <li><%= link_to "Wiki", list_path %></li>
+        <li><%= link_to "公告", event_path %></li>
+      </ul>
+    </div>
+    <div class="panel-footer"></div>
   </div>
 </div>

@@ -9,7 +9,14 @@ class Admin::WritingsController < Admin::BaseController
   end
 
   def write
-    @writings = Writing.all.page(params[:page]).per_page(1)
+    @writings = Writing.
+      all.
+      search_name(params[:name]).
+      search_mainbody(params[:mainbody]).
+      search_writing_id(params[:id]).
+      search_wiki_mulu(params[:mulu]).
+      page(params[:page]).
+      per_page(3)
   end
 
   def edit

@@ -15,7 +15,12 @@ class Admin::WikisController < Admin::BaseController
   end
 
   def wi
-    @wikis = Wiki.all.page(params[:page]).per_page(1)
+    @wikis = Wiki.
+      all.
+      search_mulu(params[:mulu]).
+      search_wiki_id(params[:id]).
+      page(params[:page]).
+      per_page(2)
   end
 
   def create

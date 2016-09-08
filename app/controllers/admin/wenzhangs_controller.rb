@@ -13,7 +13,15 @@ class Admin::WenzhangsController < Admin::BaseController
   end
 
   def wz
-    @wenzhangs = Wenzhang.all.page(params[:page]).per_page(2)
+    @wenzhangs = Wenzhang.
+      all.
+      search_head(params[:head]).
+      search_content(params[:content]).
+      search_wenzhang_id(params[:id]).
+      search_taxon_list(params[:list]).
+      page(params[:page]).
+      per_page(2)
+
   end
 
   def create
@@ -46,7 +54,7 @@ class Admin::WenzhangsController < Admin::BaseController
 
   private
 
-  def wenzhang_params
-    params.require(:wenzhang).permit(:head, :content, :taxon_id)
-  end
+    def wenzhang_params
+      params.require(:wenzhang).permit(:head, :content, :taxon_id)
+    end
 end

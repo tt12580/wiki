@@ -10,7 +10,13 @@ class Admin::NoticesController < Admin::BaseController
   end
 
   def not
-    @notices = Notice.all.page(params[:page]).per_page(1)
+    @notices = Notice.
+      all.
+      search_title(params[:title]).
+      search_notice_id(params[:id]).
+      search_body(params[:body]).
+      page(params[:page]).
+      per_page(1)
   end
 
   def more
@@ -19,7 +25,7 @@ class Admin::NoticesController < Admin::BaseController
     @taxons = Taxon.all
     @wikis = Wiki.all
   end
-  
+
   def edit
     @notice = Notice.find(params[:id])
   end
@@ -45,6 +51,14 @@ class Admin::NoticesController < Admin::BaseController
       redirect_to admin_root_url
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @notice = Notice.find(params[:id])
+    if @notice.destroy
+      flash[:success] = "deleted"
+      redirect_to admin_root_url
     end
   end
 

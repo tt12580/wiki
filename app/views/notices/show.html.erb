@@ -1,12 +1,8 @@
 <% provide(:title, @notice.title) %>
-<div class="container">
-  <div class="col-md-8 col-md-offset-1 blog-main">
-    <div class="blog-header">
-      <div class="blog-post">
-        <h2 class="blog-post-title"><%= @notice.title %></h2>
-        <p class="blog-post-meta">Posted <%= @notice.created_at.to_s(:db) %></p>
-        <p class="blog-description"><%= raw @notice.body %></p>
-      </div>
-    </div>
+<div class="col-md-10">
+  <div class="panel panel-default">
+        <div class="panel-heading"><%= @notice.title %>  Posted <%= @notice.created_at.to_s(:db) %></div>
+        <div class="panel-body"><%= raw @notice.body %></div>
+        <div class="panel-footer"></div>
   </div>
 </div>

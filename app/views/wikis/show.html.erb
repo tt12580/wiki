@@ -6,7 +6,7 @@
           <strong>古代诗人推荐</strong>
           <ul>
             <% @wikis.each do |wiki| %>
-              <li><%= link_to wiki.mulu, wiki_path(wiki) %></li>
+              <li><%= raw link_to wiki.mulu, wiki_path(wiki) %></li>
             <% end %>
          </ul>
        </div>
@@ -14,9 +14,9 @@
    </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-    <%= will_paginate @writings %>
+    <%= paginate @writings, :theme => 'twitter-bootstrap-3' %>
     <% @writings.each do |writing| %>
-        <div class="panel-heading"><%= writing.name %></div>
+        <div class="panel-heading"><%= writing.wiki.mulu %>--<%= writing.name %></div>
         <div class="panel-body"><%= raw writing.mainbody %></div>
       </div>
     <% end %>

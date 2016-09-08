@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906014331) do
+ActiveRecord::Schema.define(version: 20160908021305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,16 @@ ActiveRecord::Schema.define(version: 20160906014331) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_notices_on_deleted_at", using: :btree
   end
 
   create_table "taxons", force: :cascade do |t|
     t.text     "list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_taxons_on_deleted_at", using: :btree
   end
 
   create_table "wenzhangs", force: :cascade do |t|
@@ -34,6 +38,8 @@ ActiveRecord::Schema.define(version: 20160906014331) do
     t.integer  "taxon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_wenzhangs_on_deleted_at", using: :btree
     t.index ["taxon_id"], name: "index_wenzhangs_on_taxon_id", using: :btree
   end
 
@@ -41,6 +47,8 @@ ActiveRecord::Schema.define(version: 20160906014331) do
     t.text     "mulu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_wikis_on_deleted_at", using: :btree
   end
 
   create_table "writings", force: :cascade do |t|
@@ -49,6 +57,8 @@ ActiveRecord::Schema.define(version: 20160906014331) do
     t.integer  "wiki_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_writings_on_deleted_at", using: :btree
     t.index ["wiki_id"], name: "index_writings_on_wiki_id", using: :btree
   end
 

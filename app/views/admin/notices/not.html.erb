@@ -6,6 +6,15 @@
     </div>
   </div>
 </div>
+<%= form_tag admin_not_path, method: :get do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+  <%= label_tag :body %>
+  <%= text_field_tag :body %>
+  <%= label_tag :id %>
+  <%= text_field_tag :id %>
+  <%= submit_tag 'search' %>
+<% end %>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -17,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-      <%= paginate @notices %>
+      <%= paginate @notices, :theme => 'twitter-bootstrap-3' %>
       <% @notices.each do |notice| %>
       <tr>
         <td><%= notice.id %></td>
