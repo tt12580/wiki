@@ -16,7 +16,7 @@ class Admin::NoticesController < Admin::BaseController
       search_notice_id(params[:id]).
       search_body(params[:body]).
       page(params[:page]).
-      per_page(1)
+      per_page(3)
   end
 
   def more
@@ -65,6 +65,6 @@ class Admin::NoticesController < Admin::BaseController
   private
 
     def notice_params
-      params.require(:notice).permit(:title, :body)
+      params.require(:notice).permit(:title, :body, :picture)
     end
 end

@@ -2,35 +2,43 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 ">
-      <%= link_to 'New Taxon', new_admin_taxon_path, class: 'btn btn-primary btn-block' %>
+      <div class="panel">
+        <%= link_to 'New Taxon', new_admin_taxon_path, class: 'btn btn-primary btn-block' %>
+      </div>
     </div>
   </div>
 </div>
-<%= form_tag admin_tax_path, method: :get do %>
+<div class="search">
+  <%= form_tag admin_tax_path, method: :get do %>
   <%= label_tag :list %>
   <%= text_field_tag :list %>
   <%= label_tag :id %>
   <%= text_field_tag :id %>
   <%= submit_tag 'search' %>
-<% end %>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <td>#</td>
-      <td>List</td>
-      <td>Edit</td>
-      <td>Delete</td>
-    </tr>
-  </thead>
-  <tbody>
-      <%= paginate @taxons, :theme => 'twitter-bootstrap-3' %>
-      <% @taxons.each do |taxon| %>
-      <tr>
-        <td><%= taxon.id %></td>
-        <td><%= raw taxon.list %></td>
-        <td><%= link_to 'edit', edit_admin_taxon_path(taxon), class: 'btn btn-primary' %></td>
-        <td><%= link_to 'delete', [:admin, taxon], method: :delete, class: 'btn btn-primary' %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
+<div class="panel">
+  <div class="panel-body">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr class="success">
+          <td>#</td>
+          <td>List</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= paginate @taxons, :theme => 'twitter-bootstrap-3' %>
+        <% @taxons.each do |taxon| %>
+        <tr>
+          <td><%= taxon.id %></td>
+          <td><%= raw taxon.list %></td>
+          <td><%= link_to 'edit', edit_admin_taxon_path(taxon), class: 'btn btn-primary' %></td>
+          <td><%= link_to 'delete', [:admin, taxon], method: :delete, class: 'btn btn-primary' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
