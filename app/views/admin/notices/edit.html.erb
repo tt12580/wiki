@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for [:admin, @notice] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :body ,as: :wysihtml5 %>
+        <%= f.input :title, placeholder: '请输入公告的标题'%>
+        <%= f.input :body ,as: :wysihtml5, placeholder: '请输入公告的内容' %>
         <div class="picture">
           <%= f.file_field :picture %>
         </div>

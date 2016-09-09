@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   end
   get 'notices/new'
   get 'notices/show'
-  get '/event', to: 'notices#event'
+  get '/notice', to: 'notices#notice'
   get '/more', to: 'notices#more'
-  get '/list', to: 'notices#list'
+  get '/wiki', to: 'notices#wiki'
   resources :notices
   resources :taxons do
     resources :wenzhangs

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for [:admin, @wiki] do |f| %>
-        <%= f.input :mulu, as: :wysihtml5 %>
+        <%= f.input :mulu, as: :wysihtml5, placeholder: '请输入wiki的目录'%>
         <%= f.button :submit %>
       <% end %>
     </div>

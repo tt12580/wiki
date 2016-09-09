@@ -11,7 +11,7 @@ class NoticesController < ApplicationController
     @notice = Notice.find(params[:id])
   end
 
-  def event
+  def notice
     @notices = Notice.all
   end
 
@@ -22,9 +22,9 @@ class NoticesController < ApplicationController
     @wikis = Wiki.all
   end
 
-  def list
+  def wiki
     @wikis = Wiki.all
-    @writings = Writing.all
+    @writings = Wiki.first.writings.page(params[:page]).per_page(1)
   end
 
   private

@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for [:admin, @wenzhang] do |f| %>
-        <%= f.input :head %>
+        <%= f.input :head, placeholder: '请输入文章的标题' %>
         <%= f.input :taxon_id, collection: Taxon.all.map{|t| [t.list, t.id]}  %>
-        <%= f.input :content, as: :wysihtml5 %>
+        <%= f.input :content, as: :wysihtml5, placeholder: '请输入文章的内容' %>
         <%= f.button :submit %>
       <% end %>
     </div>
