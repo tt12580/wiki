@@ -1,4 +1,5 @@
 class Admin::TaxonsController < Admin::BaseController
+  
   layout 'admin'
   def new
     @taxon = Taxon.new

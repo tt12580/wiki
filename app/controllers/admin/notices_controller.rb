@@ -1,4 +1,5 @@
 class Admin::NoticesController < Admin::BaseController
+  load_and_authorize_resource
   layout 'admin'
   def index
     @notices = Notice.all
@@ -35,7 +36,7 @@ class Admin::NoticesController < Admin::BaseController
   end
 
   def create
-    @notice = Notice.new(notice_params)
+    @notice = current_user.notices.build(notice_params)
     if @notice.save
       flash[:success] = "success"
       redirect_to admin_root_url
@@ -65,6 +66,6 @@ class Admin::NoticesController < Admin::BaseController
   private
 
     def notice_params
-      params.require(:notice).permit(:title, :body, :picture)
+      params.require(:notice).permit(:title, :body, :picture, :user_id)
     end
 end

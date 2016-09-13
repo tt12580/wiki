@@ -1,17 +1,27 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<header class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="header">
       <%= link_to 'ADMIN',admin_root_path, id: 'logo' %>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to '主页',admin_root_path %></li>
-        <li ><%= link_to '公告', admin_not_path %></li>
-        <li ><%= link_to 'Taxon', admin_tax_path %></li>
-        <li ><%= link_to '文章', admin_wz_path %></li>
-        <li ><%= link_to 'Wiki', admin_wi_path %></li>
-        <li ><%= link_to 'Writing', admin_write_path %></li>
-      </ul>
+    <nav>
+        <% if !current_user.nil? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to('修改密码', edit_registration_path(:user)) %></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to '主页',admin_root_path %></li>
+            <li ><%= link_to '公告', admin_not_path %></li>
+            <li ><%= link_to 'Taxon', admin_tax_path %></li>
+            <li ><%= link_to '文章', admin_wz_path %></li>
+            <li ><%= link_to 'Wiki', admin_wi_path %></li>
+            <li ><%= link_to 'Writing', admin_write_path %></li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to('登入', new_session_path(:user)) %></li>
+          </ul>        
+        <% end %>
     </div>
   </div>
-</nav>
+  </nav>
+</header>
