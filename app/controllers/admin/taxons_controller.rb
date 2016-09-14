@@ -1,5 +1,5 @@
 class Admin::TaxonsController < Admin::BaseController
-  
+  authorize_resource
   layout 'admin'
   def new
     @taxon = Taxon.new
@@ -19,11 +19,10 @@ class Admin::TaxonsController < Admin::BaseController
 
   def tax
     @taxons = Taxon.
-      all.
       search_list(params[:list]).
       search_taxon_id(params[:id]).
       page(params[:page]).
-      per_page(2)
+      per(2)
   end
 
   def create

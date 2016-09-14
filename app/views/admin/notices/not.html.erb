@@ -11,7 +11,7 @@
 <div class="search">
   <%= form_tag admin_not_path, method: :get do %>
     <%= label_tag :title %>
-    <%= text_field_tag :title %>  
+    <%= text_field_tag :title %>
     <%= label_tag :body %>
     <%= text_field_tag :body %>
     <%= label_tag :id %>
@@ -38,8 +38,16 @@
           <td><%= notice.id %></td>
           <td><%= notice.title %></td>
           <td><%= raw notice.body %></td>
-          <td><%= link_to 'edit', edit_admin_notice_path(notice), class: 'btn btn-primary' %></td>
-          <td><%= link_to 'delete', [:admin,notice], method: :delete, class: 'btn btn-primary' %></td>
+          <% if can? :update, notice %>
+            <td><%= link_to 'edit', edit_admin_notice_path(notice), class: 'btn btn-primary' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <% if can? :update, notice %>
+            <td><%= link_to 'delete', [:admin,notice], method: :delete, class: 'btn btn-primary' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>

@@ -34,8 +34,16 @@
         <tr>
           <td><%= taxon.id %></td>
           <td><%= raw taxon.list %></td>
-          <td><%= link_to 'edit', edit_admin_taxon_path(taxon), class: 'btn btn-primary' %></td>
-          <td><%= link_to 'delete', [:admin, taxon], method: :delete, class: 'btn btn-primary' %></td>
+          <% if can? :update, taxon %>
+            <td><%= link_to 'edit', edit_admin_taxon_path(taxon), class: 'btn btn-primary' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <% if can? :update, taxon %>
+            <td><%= link_to 'delete', [:admin, taxon], method: :delete, class: 'btn btn-primary' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>

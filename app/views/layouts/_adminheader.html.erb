@@ -15,11 +15,12 @@
             <li ><%= link_to '文章', admin_wz_path %></li>
             <li ><%= link_to 'Wiki', admin_wi_path %></li>
             <li ><%= link_to 'Writing', admin_write_path %></li>
+            <li ><%= link_to 'Users', admin_us_path %></li>
           </ul>
         <% else %>
           <ul class="nav navbar-nav">
             <li><%= link_to('登入', new_session_path(:user)) %></li>
-          </ul>        
+          </ul>
         <% end %>
     </div>
   </div>

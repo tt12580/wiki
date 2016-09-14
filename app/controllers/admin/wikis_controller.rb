@@ -1,4 +1,5 @@
 class Admin::WikisController < Admin::BaseController
+  authorize_resource
   layout 'admin'
   def new
     @wiki = Wiki.new
@@ -7,7 +8,7 @@ class Admin::WikisController < Admin::BaseController
   def show
     @wiki = Wiki.find(params[:id])
     @wikis = Wiki.all
-    @writings = @wiki.writings.paginate(page: params[:page]).per(1)
+    @writings = @wiki.writings.page(params[:page]).per(1)
   end
 
   def edit
@@ -16,11 +17,10 @@ class Admin::WikisController < Admin::BaseController
 
   def wi
     @wikis = Wiki.
-      all.
       search_mulu(params[:mulu]).
       search_wiki_id(params[:id]).
       page(params[:page]).
-      per_page(2)
+      per(2)
   end
 
   def create

@@ -42,8 +42,16 @@
             <td><%= writing.name %></td>
             <td><%= raw writing.mainbody %></td>
             <td><%= raw writing.wiki.mulu %></td>
-            <td><%= link_to 'edit', edit_admin_writing_path(writing), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'delete', [:admin, writing], method: :delete, class: 'btn btn-primary' %></td>
+            <% if can? :update, writing %>
+              <td><%= link_to 'edit', edit_admin_writing_path(writing), class: 'btn btn-primary' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <% if can? :update, writing %>
+              <td><%= link_to 'delete', [:admin, writing], method: :delete, class: 'btn btn-primary' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
           </tr>
           <% end %>
       </tbody>

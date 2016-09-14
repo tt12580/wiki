@@ -8,8 +8,14 @@ class Ability
     elsif user.has_role? :author
       can :read, :all
       can :not, Notice
+      can :tax, Taxon
+      can :wi, Wiki
+      can :write, Writing
+      can :wz, Wenzhang
+      can :us, User
       can :create, Notice
       can :update, Notice, user_id: user.id
+      #can :update, User, user_id: user.id
       can :destroy, Notice, user_id: user.id
     else
       can :read, :all

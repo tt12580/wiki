@@ -1,4 +1,5 @@
 class Admin::WritingsController < Admin::BaseController
+  authorize_resource
   layout 'admin'
   def new
     @writing = Writing.new
@@ -10,13 +11,12 @@ class Admin::WritingsController < Admin::BaseController
 
   def write
     @writings = Writing.
-      all.
       search_name(params[:name]).
       search_mainbody(params[:mainbody]).
       search_writing_id(params[:id]).
       search_wiki_mulu(params[:mulu]).
       page(params[:page]).
-      per_page(3)
+      per(3)
   end
 
   def edit

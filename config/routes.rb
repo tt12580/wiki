@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   get 'users/new'
 
   get 'users/show'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
       resources :writings
     end
     resources :writings
-    devise_for :users
+    get '/us', to: 'users#us'
     get '/not', to: 'notices#not'
     get '/wz', to: 'wenzhangs#wz'
     get '/wi', to: 'wikis#wi'

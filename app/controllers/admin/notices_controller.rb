@@ -1,8 +1,11 @@
 class Admin::NoticesController < Admin::BaseController
-  load_and_authorize_resource
+  authorize_resource
   layout 'admin'
   def index
     @notices = Notice.all
+
+  end
+  def show
 
   end
 
@@ -12,12 +15,11 @@ class Admin::NoticesController < Admin::BaseController
 
   def not
     @notices = Notice.
-      all.
       search_title(params[:title]).
       search_notice_id(params[:id]).
       search_body(params[:body]).
       page(params[:page]).
-      per_page(3)
+      per(3)
   end
 
   def more

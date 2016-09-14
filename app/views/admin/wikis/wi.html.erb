@@ -34,8 +34,16 @@
           <tr>
             <td><%= wiki.id %></td>
             <td><%= raw wiki.mulu %></td>
-            <td><%= link_to 'edit', edit_admin_wiki_path(wiki), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'delete', [:admin, wiki], method: :delete, class: 'btn btn-primary' %></td>
+            <% if can? :update, wiki %>
+              <td><%= link_to 'edit', edit_admin_wiki_path(wiki), class: 'btn btn-primary' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <% if can? :update, wiki %>
+              <td><%= link_to 'delete', [:admin, wiki], method: :delete, class: 'btn btn-primary' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
           </tr>
           <% end %>
       </tbody>

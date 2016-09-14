@@ -42,8 +42,16 @@
           <td><%= wenzhang.head %></td>
           <td><%= raw wenzhang.content %></td>
           <td><%= raw wenzhang.taxon.list %></td>
-          <td><%= link_to 'edit', edit_admin_wenzhang_path(wenzhang), class: 'btn btn-primary btn-block' %></td>
-          <td><%= link_to 'delete', [:admin, wenzhang], method: :delete, class: 'btn btn-primary' %></td>
+          <% if can? :update, wenzhang %>
+            <td><%= link_to 'edit', edit_admin_wenzhang_path(wenzhang), class: 'btn btn-primary btn-block' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <% if can? :update, wenzhang %>
+            <td><%= link_to 'delete', [:admin, wenzhang], method: :delete, class: 'btn btn-primary' %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>

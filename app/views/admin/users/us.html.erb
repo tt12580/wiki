@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="panel-body">
+    <table class="table table-bordered  table-striped table-hover">
+      <thead>
+        <tr class="success">
+          <td>#</td>
+          <td>Email</td>
+          <td>权限</td>
+          <td>Edit</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.roles %></td>
+          <td><%= link_to 'edit', edit_user_registration_path, class: 'btn btn-primary' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

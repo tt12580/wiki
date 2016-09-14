@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
     @wikis = Wiki.all
-    @writings = @wiki.writings.page(params[:page]).per_page(1)
+    @writings = @wiki.writings.page(params[:page]).per(1)
   end
 
   private

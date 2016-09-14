@@ -1,4 +1,5 @@
 class Admin::WenzhangsController < Admin::BaseController
+  authorize_resource
   layout 'admin'
   def new
     @wenzhang = Wenzhang.new
@@ -14,13 +15,12 @@ class Admin::WenzhangsController < Admin::BaseController
 
   def wz
     @wenzhangs = Wenzhang.
-      all.
       search_head(params[:head]).
       search_content(params[:content]).
       search_wenzhang_id(params[:id]).
       search_taxon_list(params[:list]).
       page(params[:page]).
-      per_page(2)
+      per(2)
 
   end
 
