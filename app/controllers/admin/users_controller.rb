@@ -5,19 +5,29 @@ class Admin::UsersController < Admin::BaseController
     @users = User.all
   end
 
-  def us
-    @users = User.all
+  def new
+    @user = User.new
   end
 
   def edit
-    @user.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "success"
+      redirect_to admin_root_url
+    else
+      render 'new'
+    end
   end
 
   def update
-    @user = User.find(user_params)
-    if @user.update(params[:id])
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       flash[:success] = "success"
-      redirect_to admin_us_url
+      redirect_to edit_admin_user_path(@user)
     else
       render 'edit'
     end
@@ -26,7 +36,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
     def user_params
-      params.require(:user).permit(:email, :roles_mask)
+      params.require(:user).permit(:email, roles: [])
     end
 
 end

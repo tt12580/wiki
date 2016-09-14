@@ -23,13 +23,11 @@ Rails.application.routes.draw do
     resources :wikis do
       resources :writings
     end
+    resources :users
     resources :writings
-    get '/us', to: 'users#us'
+
     get '/not', to: 'notices#not'
-    get '/wz', to: 'wenzhangs#wz'
-    get '/wi', to: 'wikis#wi'
-    get '/tax', to: 'taxons#tax'
-    get '/write', to: 'writings#write'
+    
     root 'notices#index'
   end
   get 'notices/new'

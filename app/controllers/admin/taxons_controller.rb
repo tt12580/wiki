@@ -1,6 +1,14 @@
 class Admin::TaxonsController < Admin::BaseController
   authorize_resource
   layout 'admin'
+  def index
+    @taxons = Taxon.
+    search_list(params[:list]).
+    search_taxon_id(params[:id]).
+    page(params[:page]).
+    per(2)
+  end
+
   def new
     @taxon = Taxon.new
   end
@@ -15,14 +23,6 @@ class Admin::TaxonsController < Admin::BaseController
 
   def edit
     @taxon = Taxon.find(params[:id])
-  end
-
-  def tax
-    @taxons = Taxon.
-      search_list(params[:list]).
-      search_taxon_id(params[:id]).
-      page(params[:page]).
-      per(2)
   end
 
   def create

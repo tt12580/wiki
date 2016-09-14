@@ -27,6 +27,7 @@
           <td>#</td>
           <td>Title</td>
           <td>Body</td>
+          <td>author</td>
           <td>Edit</td>
           <td>Delete</td>
         </tr>
@@ -38,12 +39,13 @@
           <td><%= notice.id %></td>
           <td><%= notice.title %></td>
           <td><%= raw notice.body %></td>
+          <td><%= notice.user.email %></td>
           <% if can? :update, notice %>
             <td><%= link_to 'edit', edit_admin_notice_path(notice), class: 'btn btn-primary' %></td>
           <% else %>
             <td></td>
           <% end %>
-          <% if can? :update, notice %>
+          <% if can? :destroy, notice %>
             <td><%= link_to 'delete', [:admin,notice], method: :delete, class: 'btn btn-primary' %></td>
           <% else %>
             <td></td>

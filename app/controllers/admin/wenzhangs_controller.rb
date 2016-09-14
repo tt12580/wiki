@@ -1,6 +1,16 @@
 class Admin::WenzhangsController < Admin::BaseController
   authorize_resource
   layout 'admin'
+  def index
+    @wenzhangs = Wenzhang.
+    search_head(params[:head]).
+    search_content(params[:content]).
+    search_wenzhang_id(params[:id]).
+    search_taxon_list(params[:list]).
+    page(params[:page]).
+    per(2)
+  end
+  
   def new
     @wenzhang = Wenzhang.new
   end
@@ -13,16 +23,6 @@ class Admin::WenzhangsController < Admin::BaseController
     @wenzhang = Wenzhang.find(params[:id])
   end
 
-  def wz
-    @wenzhangs = Wenzhang.
-      search_head(params[:head]).
-      search_content(params[:content]).
-      search_wenzhang_id(params[:id]).
-      search_taxon_list(params[:list]).
-      page(params[:page]).
-      per(2)
-
-  end
 
   def create
     @wenzhang = Wenzhang.new(wenzhang_params)

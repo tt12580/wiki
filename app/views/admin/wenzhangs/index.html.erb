@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="search">
-  <%= form_tag admin_wz_path, method: :get do %>
+  <%= form_tag admin_wenzhangs_path, method: :get do %>
     <%= label_tag :head %>
     <%= text_field_tag :head %>
     <%= label_tag :content %>
@@ -47,7 +47,7 @@
           <% else %>
             <td></td>
           <% end %>
-          <% if can? :update, wenzhang %>
+          <% if can? :destroy, wenzhang %>
             <td><%= link_to 'delete', [:admin, wenzhang], method: :delete, class: 'btn btn-primary' %></td>
           <% else %>
             <td></td>

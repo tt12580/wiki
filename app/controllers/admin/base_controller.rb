@@ -12,6 +12,5 @@ class Admin::BaseController < ActionController::Base
 
     def configure_permitted_parameters
      devise_parameter_sanitizer.for(:sign_up)  { |u| u.permit(  :email,:password, :password_confirmation, roles: []) }
-     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
     end
 end

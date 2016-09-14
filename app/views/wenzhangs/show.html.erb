@@ -1,0 +1,13 @@
+<% provide(:title, @wenzhang.head) %>
+<div class="col-md-10">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= @wenzhang.head %>
+      <div class="more">
+        Posted <%= @wenzhang.created_at.to_s(:db) %>
+      </div>
+    </div>
+    <div class="panel-body"><%= raw @wenzhang.content %></div>
+    <div class="panel-footer"></div>
+  </div>
+</div>

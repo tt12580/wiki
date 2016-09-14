@@ -1,6 +1,16 @@
 class Admin::WritingsController < Admin::BaseController
   authorize_resource
   layout 'admin'
+  def index
+    @writings = Writing.
+    search_name(params[:name]).
+    search_mainbody(params[:mainbody]).
+    search_writing_id(params[:id]).
+    search_wiki_mulu(params[:mulu]).
+    page(params[:page]).
+    per(3)
+  end
+  
   def new
     @writing = Writing.new
   end
@@ -9,15 +19,6 @@ class Admin::WritingsController < Admin::BaseController
     @writing = Writing.find(params[:id])
   end
 
-  def write
-    @writings = Writing.
-      search_name(params[:name]).
-      search_mainbody(params[:mainbody]).
-      search_writing_id(params[:id]).
-      search_wiki_mulu(params[:mulu]).
-      page(params[:page]).
-      per(3)
-  end
 
   def edit
     @writing = Writing.find(params[:id])

@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="search">
-  <%= form_tag admin_write_path, method: :get do %>
+  <%= form_tag admin_writings_path, method: :get do %>
     <%= label_tag :name %>
     <%= text_field_tag :name %>
     <%= label_tag :mainbody %>
@@ -47,7 +47,7 @@
             <% else %>
               <td></td>
             <% end %>
-            <% if can? :update, writing %>
+            <% if can? :destroy, writing %>
               <td><%= link_to 'delete', [:admin, writing], method: :delete, class: 'btn btn-primary' %></td>
             <% else %>
               <td></td>

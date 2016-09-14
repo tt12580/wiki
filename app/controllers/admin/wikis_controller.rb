@@ -1,6 +1,14 @@
 class Admin::WikisController < Admin::BaseController
   authorize_resource
   layout 'admin'
+  def index
+    @wikis = Wiki.
+    search_mulu(params[:mulu]).
+    search_wiki_id(params[:id]).
+    page(params[:page]).
+    per(2)
+  end
+  
   def new
     @wiki = Wiki.new
   end
@@ -15,13 +23,6 @@ class Admin::WikisController < Admin::BaseController
     @wiki = Wiki.find(params[:id])
   end
 
-  def wi
-    @wikis = Wiki.
-      search_mulu(params[:mulu]).
-      search_wiki_id(params[:id]).
-      page(params[:page]).
-      per(2)
-  end
 
   def create
     @wiki = Wiki.new(wiki_params)

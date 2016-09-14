@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="search">
-  <%= form_tag admin_wi_path, method: :get do %>
+  <%= form_tag admin_wikis_path, method: :get do %>
     <%= label_tag :mulu %>
     <%= text_field_tag :mulu %>
     <%= label_tag :id %>
@@ -39,7 +39,7 @@
             <% else %>
               <td></td>
             <% end %>
-            <% if can? :update, wiki %>
+            <% if can? :destroy, wiki %>
               <td><%= link_to 'delete', [:admin, wiki], method: :delete, class: 'btn btn-primary' %></td>
             <% else %>
               <td></td>
