@@ -10,7 +10,7 @@ class Admin::WenzhangsController < Admin::BaseController
     page(params[:page]).
     per(2)
   end
-  
+
   def new
     @wenzhang = Wenzhang.new
   end
@@ -38,7 +38,7 @@ class Admin::WenzhangsController < Admin::BaseController
     @wenzhang = Wenzhang.find(params[:id])
     if @wenzhang.update(wenzhang_params)
       flash[:success] = "success"
-      redirect_to admin_root_url
+      redirect_to admin_wenzhangs_path
     else
       render 'edit'
     end
@@ -55,6 +55,6 @@ class Admin::WenzhangsController < Admin::BaseController
   private
 
     def wenzhang_params
-      params.require(:wenzhang).permit(:head, :content, :taxon_id)
+      params.require(:wenzhang).permit(:head, :content, :taxon_id, :author)
     end
 end

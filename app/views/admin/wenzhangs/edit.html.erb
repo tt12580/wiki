@@ -5,6 +5,7 @@
       <%= simple_form_for [:admin, @wenzhang] do |f| %>
         <%= f.input :head %>
         <%= f.input :taxon_id, collection: Taxon.all.map{|t| [t.list, t.id]}  %>
+        <%= f.input :author %>
         <%= f.input :content, as: :wysihtml5 %>
         <%= f.button :submit %>
       <% end %>

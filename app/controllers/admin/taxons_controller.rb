@@ -39,7 +39,7 @@ class Admin::TaxonsController < Admin::BaseController
     @taxon = Taxon.find(params[:id])
     if @taxon.update(taxon_params)
       flash[:success] = "success"
-      redirect_to admin_root_url
+      redirect_to admin_taxons_path
     else
       render 'edit'
     end

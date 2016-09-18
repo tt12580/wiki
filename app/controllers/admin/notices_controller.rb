@@ -51,7 +51,7 @@ class Admin::NoticesController < Admin::BaseController
     @notice = Notice.find(params[:id])
     if @notice.update(notice_params)
       flash[:success] = "success"
-      redirect_to admin_root_url
+      redirect_to admin_not_path
     else
       render 'edit'
     end

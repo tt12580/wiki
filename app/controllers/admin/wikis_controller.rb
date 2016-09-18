@@ -8,7 +8,7 @@ class Admin::WikisController < Admin::BaseController
     page(params[:page]).
     per(2)
   end
-  
+
   def new
     @wiki = Wiki.new
   end
@@ -38,7 +38,7 @@ class Admin::WikisController < Admin::BaseController
     @wiki = Wiki.find(params[:id])
     if @wiki.update(wiki_params)
       flash[:success] = "success"
-      redirect_to admim_root_url
+      redirect_to admin_wikis_path
     else
       render 'edit'
     end

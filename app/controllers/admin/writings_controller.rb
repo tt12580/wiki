@@ -10,7 +10,7 @@ class Admin::WritingsController < Admin::BaseController
     page(params[:page]).
     per(3)
   end
-  
+
   def new
     @writing = Writing.new
   end
@@ -38,7 +38,7 @@ class Admin::WritingsController < Admin::BaseController
     @writing = Writing.find(params[:id])
     if @writing.update(writing_params)
       flash[:success] = "success"
-      redirect_to admin_root_url
+      redirect_to admin_writings_path
     else
       render 'edit'
     end

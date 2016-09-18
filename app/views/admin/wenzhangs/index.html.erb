@@ -28,6 +28,7 @@
         <tr class="success">
           <td>#</td>
           <td>Head</td>
+          <td>author</td>
           <td>Content</td>
           <td>Taxon</td>
           <td>Edit</td>
@@ -40,6 +41,7 @@
         <tr>
           <td><%= wenzhang.id %></td>
           <td><%= wenzhang.head %></td>
+          <td><%= wenzhang.author %></td>
           <td><%= raw wenzhang.content %></td>
           <td><%= raw wenzhang.taxon.list %></td>
           <% if can? :update, wenzhang %>

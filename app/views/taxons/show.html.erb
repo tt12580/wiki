@@ -44,6 +44,7 @@
               <tr class="success">
                 <td>#</td>
                 <td>类别</td>
+                <td>作者</td>
                 <td>题目</td>
                 <td>创建时间</td>
               </tr>
@@ -52,6 +53,7 @@
               <tr>
                 <td><%= wenzhang.id %></td>
                 <td><%= raw wenzhang.taxon.list %></td>
+                <td><%= wenzhang.author %></td>
                 <td><%= link_to wenzhang.head, wenzhang %></td>
                 <td><%= wenzhang.created_at.to_s(:db) %></td>
               </tr>

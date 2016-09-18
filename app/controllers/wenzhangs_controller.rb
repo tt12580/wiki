@@ -7,7 +7,7 @@ class WenzhangsController < ApplicationController
   private
 
     def wenzhang_params
-      params.require(:wenzhang).permit(:head, :content, :taxon_id)
+      params.require(:wenzhang).permit(:head, :content, :author, :taxon_id)
     end
 
 end
